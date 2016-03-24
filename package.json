@@ -2,7 +2,7 @@
   "name": "angular2-tag-input",
   "version": "1.0.0",
   "description": "Tag input component for Angular 2",
-  "main": "index.js",
+  "main": "src/tag-input.component.ts",
   "scripts": {
     "build": "rimraf dist/ && webpack -p"
   },
