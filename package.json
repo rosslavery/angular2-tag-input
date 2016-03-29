@@ -1,26 +1,21 @@
 {
   "name": "angular2-tag-input",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Tag input component for Angular 2",
-  "main": "src/tag-input.component.ts",
+  "main": "dist/tag-input.component.js",
+  "typings": "dist/tag-input.component.d.ts",
   "scripts": {
-    "build": "rimraf dist/ && webpack -p"
+    "prepublish": "tsc"
   },
   "author": "TEAM COOL",
   "license": "ISC",
   "devDependencies": {
     "angular2": "^2.0.0-beta.12",
-    "awesome-typescript-loader": "^0.16.0-rc.0",
-    "css-loader": "^0.23.1",
     "es6-promise": "^3.1.2",
     "es6-shim": "^0.35.0",
     "es7-reflect-metadata": "^1.6.0",
-    "html-loader": "^0.4.3",
-    "reflect-metadata": "^0.1.2",
-    "rxjs": "^5.0.0-beta.2",
-    "sass-loader": "^3.2.0",
-    "style-loader": "^0.13.0",
-    "to-string-loader": "^1.1.3",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.2",
     "typescript": "~1.8.7",
     "webpack": "^1.12.14",
     "zone.js": "^0.6.6"

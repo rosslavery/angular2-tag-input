@@ -5,8 +5,41 @@ import {TagInputItemComponent} from './tag-input-item.component';
 
 @Component({
   selector: 'tag-input',
-  template: require('./tag-input.html'),
-  styles: [require('./tag-input.scss')],
+  template:
+  `<tag-input-item
+    [text]="tag"
+    [index]="index"
+    [selected]="selectedTag === index"
+    (tagRemoved)="_removeTag($event)"
+    *ngFor="#tag of tagsList; #index = index">
+  </tag-input-item>
+  <input
+    class="ng2-tag-input-field"
+    type="text"
+    [placeholder]="placeholder"
+    [(ngModel)]="inputValue"
+    (paste)="inputPaste($event)"
+    (keydown)="inputChanged($event)"
+    (blur)="inputBlurred($event)"
+    (focus)="inputFocused()"
+    #tagInputRef>`,
+
+  styles: [`
+    :host {
+      display: block;
+      box-shadow: 0 1px #ccc;
+      padding: 5px 0;
+    }
+
+    :host.ng2-tag-input-focus {
+      box-shadow: 0 2px #0d8bff;
+    }
+
+    .ng2-tag-input-field {
+      box-shadow: none;
+      border: 0;
+    }
+  `],
   directives: [TagInputItemComponent]
 })
 export class TagInputComponent {
