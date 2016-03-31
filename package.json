@@ -4,6 +4,7 @@
   "description": "Tag input component for Angular 2",
   "main": "dist/tag-input.component.js",
   "typings": "dist/tag-input.component.d.ts",
+  "keywords": ["angular2", "tag input", "taginput", "tags", "chips", "chips input"],
   "scripts": {
     "prepublish": "tsc"
   },
