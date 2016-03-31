@@ -69,9 +69,9 @@ export class TagInputComponent {
 
   ngAfterViewInit() {
     // If the user passes an undefined variable to ngModel this will warn
-    // and set the value to an empty string
+    // and set the value to an empty array
     if (!this.tagsList) {
-      console.warn('Searchbar was passed an undefined value in ngModel. Please make sure the variable is defined.');
+      console.warn('TagInputComponent was passed an undefined value in ngModel. Please make sure the variable is defined.');
       this.tagsList = [];
       this.onChange(this.tagsList);
     }
