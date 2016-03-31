@@ -1,6 +1,9 @@
 # angular2-tag-input
 Tag input component for Angular 2
 
+## Demo & Examples
+[View Plunker](http://plnkr.co/edit/uVGOm8yA0zA0OKhgWpvq?p=preview)
+
 ## Quick Start
 ```
 npm install angular2-tag-input --save
