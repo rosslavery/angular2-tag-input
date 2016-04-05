@@ -36,6 +36,8 @@ import {TagInputItemComponent} from './tag-input-item.component';
     }
 
     .ng2-tag-input-field {
+      display: inline-block;
+      width: auto;
       box-shadow: none;
       border: 0;
     }
