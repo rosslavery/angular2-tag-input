@@ -54,7 +54,7 @@ export class TagInputComponent {
   @Input() allowedTagsPattern: RegExp = /.+/;
   @HostBinding('class.ng2-tag-input-focus') isFocussed;
 
-  public tagsList: string[];
+  public tagsList: string[] = [];
   public inputValue: string = '';
   public delimiter: number;
   public selectedTag: number;
@@ -67,16 +67,6 @@ export class TagInputComponent {
     if (this.ngModel) this.tagsList = this.ngModel;
     this.onChange(this.tagsList);
     this.delimiter = parseInt(this.delimiterCode);
-  }
-
-  ngAfterViewInit() {
-    // If the user passes an undefined variable to ngModel this will warn
-    // and set the value to an empty array
-    if (!this.tagsList) {
-      console.warn('TagInputComponent was passed an undefined value in ngModel. Please make sure the variable is defined.');
-      this.tagsList = [];
-      this.onChange(this.tagsList);
-    }
   }
 
   inputChanged(event) {
