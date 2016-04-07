@@ -1,4 +1,4 @@
-import {Component, HostBinding, Input, Output, Provider, forwardRef, EventEmitter} from 'angular2/core';
+import {Component, HostBinding, Input} from 'angular2/core';
 import {NgControl} from 'angular2/common';
 import {isBlank} from 'angular2/src/facade/lang';
 import {TagInputItemComponent} from './tag-input-item.component';
