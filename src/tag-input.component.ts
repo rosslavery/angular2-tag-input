@@ -47,7 +47,7 @@ import {TagInputItemComponent} from './tag-input-item.component';
 export class TagInputComponent {
   @Input() placeholder: string = 'Add a tag';
   @Input() ngModel: string[];
-  @Input() delimiterCode: Array<string> & string = '188';
+  @Input() delimiterCode: Array<number> = [188];
   @Input() addOnBlur: boolean = true;
   @Input() addOnEnter: boolean = true;
   @Input() addOnPaste: boolean = true;
@@ -56,7 +56,6 @@ export class TagInputComponent {
 
   public tagsList: string[] = [];
   public inputValue: string = '';
-  public delimiter: number;
   public selectedTag: number;
 
   constructor(private _ngControl: NgControl) {
@@ -66,7 +65,6 @@ export class TagInputComponent {
   ngOnInit() {
     if (this.ngModel) this.tagsList = this.ngModel;
     this.onChange(this.tagsList);
-    this.delimiter = parseInt(this.delimiterCode);
   }
 
   inputChanged(event) {
