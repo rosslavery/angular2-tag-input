@@ -1,6 +1,6 @@
-import {Component, HostBinding, Input} from 'angular2/core';
-import {NgControl} from 'angular2/common';
-import {isBlank} from 'angular2/src/facade/lang';
+import {Component, HostBinding, Input} from '@angular/core';
+import {NgControl} from '@angular/common';
+import {isBlank} from '@angular/common/src/facade/lang';
 import {TagInputItemComponent} from './tag-input-item.component';
 
 @Component({
@@ -11,7 +11,7 @@ import {TagInputItemComponent} from './tag-input-item.component';
     [index]="index"
     [selected]="selectedTag === index"
     (tagRemoved)="_removeTag($event)"
-    *ngFor="#tag of tagsList; #index = index">
+    *ngFor="let tag of tagsList; let index = index">
   </tag-input-item>
   <input
     class="ng2-tag-input-field"
