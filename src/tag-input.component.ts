@@ -1,6 +1,6 @@
-import {Component, HostBinding, Input} from 'angular2/core';
-import {NgControl} from 'angular2/common';
-import {isBlank} from 'angular2/src/facade/lang';
+import {Component, HostBinding, Input} from '@angular/core';
+import {NgControl} from '@angular/common';
+import {isBlank} from '@angular/common/src/facade/lang';
 import {TagInputItemComponent} from './tag-input-item.component';
 
 @Component({
@@ -11,7 +11,7 @@ import {TagInputItemComponent} from './tag-input-item.component';
     [index]="index"
     [selected]="selectedTag === index"
     (tagRemoved)="_removeTag($event)"
-    *ngFor="#tag of tagsList; #index = index">
+    *ngFor="let tag of tagsList; let index = index">
   </tag-input-item>
   <input
     class="ng2-tag-input-field"
@@ -47,7 +47,7 @@ import {TagInputItemComponent} from './tag-input-item.component';
 export class TagInputComponent {
   @Input() placeholder: string = 'Add a tag';
   @Input() ngModel: string[];
-  @Input() delimiterCode: string = '188';
+  @Input() delimiterCode: Array<number> = [188];
   @Input() addOnBlur: boolean = true;
   @Input() addOnEnter: boolean = true;
   @Input() addOnPaste: boolean = true;
@@ -56,7 +56,6 @@ export class TagInputComponent {
 
   public tagsList: string[] = [];
   public inputValue: string = '';
-  public delimiter: number;
   public selectedTag: number;
 
   constructor(private _ngControl: NgControl) {
@@ -66,7 +65,6 @@ export class TagInputComponent {
   ngOnInit() {
     if (this.ngModel) this.tagsList = this.ngModel;
     this.onChange(this.tagsList);
-    this.delimiter = parseInt(this.delimiterCode);
   }
 
   inputChanged(event) {
@@ -80,12 +78,13 @@ export class TagInputComponent {
         event.preventDefault();
         break;
 
-      case this.delimiter:
-        this._addTags([this.inputValue]);
-        event.preventDefault();
-        break;
-
       default:
+        this.delimiterCode.forEach( delimiter => {
+            if(key == delimiter) {
+                this._addTags([this.inputValue]);
+                event.preventDefault();
+            }
+        });
         this._resetSelected();
         break;
     }

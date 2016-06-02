@@ -24,7 +24,7 @@ import {TagInputComponent} from 'angular2-tag-input';
 ### Inputs
 - `ngModel` : `string[]` - **Required** Property to store the resulting tag list in.
 - `placeholder` : `string` - **Default**: ``'Add a tag'`` - Placeholder for the `<input>` tag.
-- `delimiterCode` : `string` - **Default**: ``'188'`` - ASCII keycode to split tags on. Defaults to comma.
+- `delimiterCode` : `Array<number>` - **Default**: ``'[188]'`` - Array of ASCII keycodes to split tags on. Defaults to comma.
 - `addOnBlur` : `boolean` - **Default**: `true` - Whether to attempt to add a tag when the input loses focus.
 - `addOnEnter` : `boolean` - **Default**: `true` - Whether to attempt to add a tag when the user presses enter.
 - `addOnPaste` : `boolean` - **Default**: `true` - Whether to attempt to add a tags when the user pastes their clipboard contents.
