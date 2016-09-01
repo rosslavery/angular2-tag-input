@@ -14,7 +14,8 @@
   ],
   "scripts": {
     "serve": "webpack-dev-server --config config/webpack.dev.js --progress --profile --watch --content-base demo/",
-    "lint": "tslint src/**.*.ts"
+    "lint": "tslint src/**.*.ts",
+    "prepublish": "tsc"
   },
   "author": "TEAM COOL",
   "license": "ISC",
