@@ -2,8 +2,8 @@
   "name": "angular2-tag-input",
   "version": "0.1.5",
   "description": "Tag input component for Angular 2",
-  "main": "dist/tag-input.component.js",
-  "typings": "dist/tag-input.component.d.ts",
+  "main": "dist/tag-input.module.js",
+  "typings": "dist/tag-input.module.d.ts",
   "keywords": [
     "angular2",
     "tag input",
@@ -13,31 +13,31 @@
     "chips input"
   ],
   "scripts": {
-    "prepublish": "tsc"
+    "serve": "webpack-dev-server --config config/webpack.dev.js --progress --profile --watch --content-base demo/",
+    "lint": "tslint src/**.*.ts"
   },
   "author": "TEAM COOL",
   "license": "ISC",
+  "peerDependencies": {
+    "@angular/common": "2.0.0-rc.6",
+    "@angular/core": "2.0.0-rc.6",
+    "@angular/forms": "2.0.0-rc.6"
+  },
   "devDependencies": {
-    "@angular/common":  "2.0.0-rc.1",
-    "@angular/compiler":  "2.0.0-rc.1",
-    "@angular/core": "2.0.0-rc.1",
-    "@angular/http": "2.0.0-rc.1",
-    "@angular/platform-browser": "2.0.0-rc.1",
-    "@angular/platform-browser-dynamic": "2.0.0-rc.1",
-    "@angular/router": "2.0.0-rc.1",
-    "@angular/router-deprecated": "2.0.0-rc.1",
-    "@angular/upgrade": "2.0.0-rc.1",
-
-    "systemjs": "0.19.27",
+    "@angular/common": "2.0.0-rc.6",
+    "@angular/compiler": "2.0.0-rc.6",
+    "@angular/core": "2.0.0-rc.6",
+    "@angular/forms": "2.0.0-rc.6",
+    "@angular/platform-browser": "2.0.0-rc.6",
+    "@angular/platform-browser-dynamic": "2.0.0-rc.6",
+    "awesome-typescript-loader": "^2.2.1",
+    "codelyzer": "~0.0.26",
     "core-js": "^2.4.0",
-    "reflect-metadata": "^0.1.3",
-    "rxjs": "5.0.0-beta.6",
-    "zone.js": "^0.6.12",
-
-    "es7-reflect-metadata": "^1.6.0",
-
-    "typescript": "~1.8.7",
-    "webpack": "^1.12.14"
+    "rxjs": "5.0.0-beta.11",
+    "tslint": "3.13.0",
+    "typescript": "2.0.0",
+    "webpack": "^2.1.0-beta.21",
+    "webpack-dev-server": "^2.1.0-beta.0",
+    "zone.js": "^0.6.12"
   }
 }
-
