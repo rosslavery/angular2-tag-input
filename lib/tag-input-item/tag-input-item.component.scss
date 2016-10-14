@@ -1,0 +1,39 @@
+@import '../shared/tag-input-variables';
+
+:host {
+  font-family: $font-family;
+  font-size: $font-size;
+  height: 32px;
+  line-height: 32px;
+  display: inline-block;
+  background: $tag-input-item-bg;
+  padding: 0 12px;
+  border-radius: 90px;
+  margin-right: 10px;
+  transition: all 0.12s ease-out;
+
+  .ng2-tag-input-remove {
+    background: $tag-input-item-remove-bg;
+    border-radius: 50%;
+    color: $tag-input-item-bg;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 17px;
+    height: 24px;
+    line-height: 24px;
+    margin-left: 6px;
+    margin-right: -6px;
+    text-align: center;
+    width: 24px;
+  }
+}
+
+:host.ng2-tag-input-item-selected {
+  color: white;
+  background: $material-accent;
+
+  .ng2-tag-input-remove {
+    background: white;
+    color: $material-accent;
+  }
+}

@@ -2,8 +2,7 @@
   "name": "angular2-tag-input",
   "version": "1.0.0",
   "description": "Tag input component for Angular 2",
-  "main": "dist/tag-input.module.js",
-  "typings": "dist/tag-input.module.d.ts",
+  "main": "./dist/angular2-tag-input.bundle.js",
   "keywords": [
     "angular2",
     "tag input",
@@ -13,32 +12,40 @@
     "chips input"
   ],
   "scripts": {
+    "build": "webpack --config config/webpack.config.js && tsc",
     "serve": "webpack-dev-server --config config/webpack.dev.js --progress --profile --watch --content-base demo/",
-    "lint": "tslint src/**.*.ts",
-    "prepublish": "tsc"
+    "lint": "tslint lib/**.*.ts",
+    "prepublish": "npm run lint && npm run build"
   },
   "author": "TEAM COOL",
   "license": "ISC",
   "peerDependencies": {
-    "@angular/common": "2.0.0-rc.6",
-    "@angular/core": "2.0.0-rc.6",
-    "@angular/forms": "2.0.0-rc.6"
+    "@angular/common": "2.0.2",
+    "@angular/core": "2.0.2",
+    "@angular/forms": "2.0.2"
   },
   "devDependencies": {
-    "@angular/common": "2.0.0-rc.6",
-    "@angular/compiler": "2.0.0-rc.6",
-    "@angular/core": "2.0.0-rc.6",
-    "@angular/forms": "2.0.0-rc.6",
-    "@angular/platform-browser": "2.0.0-rc.6",
-    "@angular/platform-browser-dynamic": "2.0.0-rc.6",
-    "awesome-typescript-loader": "^2.2.1",
+    "@angular/common": "2.0.2",
+    "@angular/compiler": "2.0.2",
+    "@angular/core": "2.0.2",
+    "@angular/forms": "2.0.2",
+    "@angular/platform-browser": "2.0.2",
+    "@angular/platform-browser-dynamic": "2.0.2",
+    "@types/core-js": "^0.9.34",
+    "@types/node": "^6.0.45",
+    "awesome-typescript-loader": "^2.2.3",
     "codelyzer": "~0.0.26",
-    "core-js": "^2.4.0",
-    "rxjs": "5.0.0-beta.11",
+    "core-js": "^2.4.1",
+    "node-sass": "^3.10.1",
+    "postcss-loader": "^0.13.0",
+    "raw-loader": "^0.5.1",
+    "rxjs": "5.0.0-beta.12",
+    "sass-loader": "^4.0.2",
+    "source-map-loader": "^0.1.5",
     "tslint": "3.13.0",
-    "typescript": "2.0.0",
+    "typescript": "2.0.3",
     "webpack": "^2.1.0-beta.21",
     "webpack-dev-server": "^2.1.0-beta.0",
-    "zone.js": "^0.6.12"
+    "zone.js": "^0.6.25"
   }
 }

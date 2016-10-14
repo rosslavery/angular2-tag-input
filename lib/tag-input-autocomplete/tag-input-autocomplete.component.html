@@ -1,0 +1,7 @@
+<div
+  *ngFor="let item of items; let itemIndex = index"
+  [ngClass]="{ 'is-selected': selectedItemIndex === itemIndex }"
+  (click)="selectItem(itemIndex)"
+  class="rl-autocomplete-item">
+  {{item}}
+</div>

@@ -1,0 +1,27 @@
+<rl-tag-input-item
+  [text]="tag"
+  [index]="index"
+  [selected]="selectedTag === index"
+  (tagRemoved)="_removeTag($event)"
+  *ngFor="let tag of tagsList; let index = index">
+</rl-tag-input-item>
+<form [formGroup]="tagInputForm" class="ng2-tag-input-form">
+  <input
+    class="ng2-tag-input-field"
+    type="text"
+    formControlName="tagInputField"
+    [placeholder]="placeholder"
+    (paste)="onInputPaste($event)"
+    (keydown)="onKeydown($event)"
+    (blur)="onInputBlurred($event)"
+    (focus)="onInputFocused()">
+
+  <div *ngIf="showAutocomplete()" class="rl-tag-input-autocomplete-container">
+    <rl-tag-input-autocomplete
+      [items]="autocompleteResults"
+      [selectFirstItem]="autocompleteSelectFirstItem"
+      (itemSelected)="onAutocompleteSelect($event)"
+      (enterPressed)="onAutocompleteEnter($event)">
+    </rl-tag-input-autocomplete>
+  </div>
+</form>

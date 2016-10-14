@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.0
+- Added autocomplete feature
+- Greatly-improved styling to adhere to Material spec
+- Added numerous new inputs/outputs (see API docs)
+
 ## 1.0.0
 ### Breaking Changes
 - Removed delimiterCode @Input. While some flexibility is lost, code is more reliable with a limited number of split patterns

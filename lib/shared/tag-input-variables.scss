@@ -1,0 +1,53 @@
+$font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+$font-size: 16px;
+$material-accent: #0d8bff;
+
+// Tag Input Item
+$tag-input-item-bg: #e0e0e0;
+$tag-input-item-selected-bg: #e0e0e0;
+$tag-input-item-font-size: 13px;
+$tag-input-item-remove-bg: #a6a6a6;
+
+// Tag Input Autocomplete
+$tag-input-autocomplete-bg: white;
+$tag-input-autocomplete-selected-bg: #eeeeee;
+$tag-input-autocomplete-item-color: #444444;
+
+// Material Shadows Mixins.
+// Source Credit: https://css-tricks.com/snippets/sass/material-shadows-mixin/
+//
+// @param {Number} $depth - depth level (between 1 and 5)
+// @link http://www.google.com/design/spec/layout/layout-principles.html#layout-principles-dimensionality Google Design
+// @requires {function} top-shadow
+// @requires {function} bottom-shadow
+@mixin material-depth($depth) {
+  @if $depth < 1 {
+    box-shadow: none;
+  } @else if $depth > 5 {
+    @warn "Invalid $depth `#{$depth}` for mixin `card`.";
+  } @else {
+    box-shadow: bottom-shadow($depth), top-shadow($depth);
+  }
+}
+
+/// Computes a top-shadow for a card effect.
+/// @param {Number} $depth - depth level
+/// @return {List}
+@function top-shadow($depth) {
+  $primary-offset: nth(1.5 3 10 14 19, $depth) * 1px;
+  $blur: nth(1.5 3 10 14 19, $depth) * 4px;
+  $color: rgba(black, nth(.12 .16 .19 .25 .30, $depth));
+
+  @return 0 $primary-offset $blur $color;
+}
+
+/// Computes a bottom-shadow for a card effect.
+/// @param {Number} $depth - depth level
+/// @return {List}
+@function bottom-shadow($depth) {
+  $primary-offset: nth(1.5 3 6 10 15, $depth) * 1px;
+  $blur: nth(1 3 3 5 6, $depth) * 4px;
+  $color: rgba(black, nth(.24 .23 .23 .22 .22, $depth));
+
+  @return 0 $primary-offset $blur $color;
+}

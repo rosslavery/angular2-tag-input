@@ -1,17 +1,23 @@
 {
   "compilerOptions": {
+    "removeComments": true,
     "target": "es5",
     "module": "commonjs",
     "moduleResolution": "node",
     "declaration": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "sourceMap": false,
-    "outDir": "./dist"
+    "sourceMap": true,
+    "outDir": "./dist",
+    "typeRoots": [
+      "./node_modules/@types"
+    ]
   },
   "files": [
-    "./src/tag-input.module.ts",
-    "typings/main.d.ts"
+    "./index.ts"
+  ],
+  "include": [
+    "lib"
   ],
   "exclude": [
     "node_modules"

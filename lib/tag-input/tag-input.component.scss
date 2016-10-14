@@ -1,0 +1,39 @@
+@import '../shared/tag-input-variables';
+
+:host {
+  font-family: $font-family;
+  font-size: $font-size;
+  display: block;
+  box-shadow: 0 1px #ccc;
+  padding: 8px 0 6px 0;
+  will-change: box-shadow;
+  transition: box-shadow 0.12s ease-out;
+
+  .ng2-tag-input-form {
+    display: inline;
+  }
+
+  .ng2-tag-input-field {
+    font-family: $font-family;
+    font-size: $font-size;
+    display: inline-block;
+    width: auto;
+    box-shadow: none;
+    border: 0;
+    padding: 8px 0;
+
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  .rl-tag-input-autocomplete-container {
+    position: relative;
+    z-index: 10;
+  }
+}
+
+:host.ng2-tag-input-focus {
+  box-shadow: 0 2px $material-accent;
+}
+
