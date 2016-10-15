@@ -1,0 +1,33 @@
+<h2>Basic Tag Input:</h2>
+<div>
+  <rl-tag-input
+    [(ngModel)]="tags"
+    placeholder="Testing placeholder">
+  </rl-tag-input>
+</div>
+<div>
+  <h4>Bound List:</h4>
+  <pre>
+    {{tags | json}}
+  </pre>
+</div>
+
+<br><br><br><br>
+
+<h2>AutoComplete Tag Input:</h2>
+<h3>Tag must belong to autocomplete list.</h3>
+<div>
+	<rl-tag-input
+    [addOnBlur]="false"
+    [autocomplete]="true"
+    [autocompleteItems]="autocompleteItems"
+    [(ngModel)]="autocompleteTags"
+    placeholder="Testing placeholder">
+  </rl-tag-input>
+</div>
+<div>
+	<h4>Bound List:</h4>
+	<pre>
+		{{autocompleteTags | json}}
+	</pre>
+</div>
