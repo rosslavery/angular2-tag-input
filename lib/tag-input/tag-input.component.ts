@@ -122,8 +122,7 @@ export class TagInputComponent implements ControlValueAccessor, OnDestroy, OnIni
     let clipboardData = event.clipboardData || (event.originalEvent && event.originalEvent.clipboardData);
     let pastedString = clipboardData.getData('text/plain');
     let tags = this._splitString(pastedString);
-    let tagsToAdd = tags.filter((tag) => this._isTagValid(tag));
-    this._addTags(tagsToAdd);
+    this._addTags(tags);
     setTimeout(() => this._resetInput());
   }
 
