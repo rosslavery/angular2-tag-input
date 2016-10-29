@@ -167,10 +167,10 @@ export class TagInputComponent implements ControlValueAccessor, OnDestroy, OnIni
   }
 
   private _addTags(tags: string[]): void {
-    let validTags = tags.filter(tag => this._isTagValid(tag))
+    let validTags = tags.map(tag => tag.trim())
+                        .filter(tag => this._isTagValid(tag))
                         .filter(tag => this._isTagUnique(tag))
-                        .filter(tag => (this.showAutocomplete() && this.autocompleteMustMatch) ? this._isTagAutocompleteItem(tag) : true)
-                        .map(tag => tag.trim());
+                        .filter(tag => (this.showAutocomplete() && this.autocompleteMustMatch) ? this._isTagAutocompleteItem(tag) : true);
 
     this.tagsList = this.tagsList.concat(validTags);
     this._resetSelected();
