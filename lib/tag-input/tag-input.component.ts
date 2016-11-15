@@ -206,7 +206,7 @@ export class TagInputComponent implements ControlValueAccessor, OnDestroy, OnIni
   }
 
   /** Implemented as part of ControlValueAccessor. */
-  onChange: (value) => any = () => { };
+  onChange: (value: any) => any = () => { };
 
   onTouched: () => any = () => { };
 
