@@ -147,7 +147,8 @@ export class TagInputComponent implements ControlValueAccessor, OnDestroy, OnIni
   }
 
   private _isTagValid(tagString: string): boolean {
-    return this.allowedTagsPattern.test(tagString) && this._isTagUnique(tagString);
+    return this.allowedTagsPattern.test(tagString) &&
+           this._isTagUnique(tagString);
   }
 
   private _isTagUnique(tagString: string): boolean {
@@ -169,7 +170,7 @@ export class TagInputComponent implements ControlValueAccessor, OnDestroy, OnIni
   private _addTags(tags: string[]): void {
     let validTags = tags.map(tag => tag.trim())
                         .filter(tag => this._isTagValid(tag))
-                        .filter(tag => this._isTagUnique(tag))
+                        .filter((tag, index, tagArray) => tagArray.indexOf(tag) === index)
                         .filter(tag => (this.showAutocomplete() && this.autocompleteMustMatch) ? this._isTagAutocompleteItem(tag) : true);
 
     this.tagsList = this.tagsList.concat(validTags);
