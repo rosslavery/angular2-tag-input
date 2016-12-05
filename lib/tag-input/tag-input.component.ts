@@ -17,8 +17,8 @@ export interface AutoCompleteItem {
 
 @Component({
   selector: 'rl-tag-input',
-  template: require('./tag-input.component.html'),
-  styles: [require('./tag-input.component.scss').toString()],
+  templateUrl: './tag-input.component.html',
+  styleUrls: ['./tag-input.component.css'],
   providers: [
     {provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => TagInputComponent), multi: true},
   ]

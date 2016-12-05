@@ -1,3 +1,7 @@
 node_modules
 typings
 dist
+
+/compiled
+*.metadata.json
+.idea

@@ -2,24 +2,25 @@
   "compilerOptions": {
     "removeComments": true,
     "target": "es5",
-    "module": "commonjs",
+    "module": "es2015",
     "moduleResolution": "node",
     "declaration": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "sourceMap": true,
-    "outDir": "./dist",
+    "outDir": "./dist-tsconfig",
     "typeRoots": [
       "./node_modules/@types"
     ]
   },
   "files": [
-    "./index.ts"
-  ],
-  "include": [
-    "lib"
+    "lib/tag-input.module.ts"
   ],
   "exclude": [
-    "node_modules"
-  ]
+    "node_modules",
+    "dist"
+  ],
+  "angularCompilerOptions": {
+    "genDir": "compiled"
+  }
 }

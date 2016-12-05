@@ -1,2 +1,4 @@
 typings
 node_modules
+/compiled
+*.ngFactory.ts

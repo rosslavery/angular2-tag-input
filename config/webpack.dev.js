@@ -3,53 +3,53 @@
  * https://github.com/Gbuomprisco/ng2-tag-input/blob/master/webpack.demo.js
  */
 
-var path = require('path');
-var webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   'entry': {
     'app': './demo/main.ts',
   },
   'output': {
-    'path': './demo/dist',
+    'path': '/demo/dist',
     'publicPath': '/',
     'filename': '[name].js'
   },
   'resolve': {
     'extensions': [
-      '',
       '.ts',
       '.js',
       '.json',
       '.css',
       '.scss',
-      '.html',
+      '.html'
     ]
   },
   'module': {
-    'loaders': [
+    'rules': [
       {
         test: /\.ts$/,
-        loader: 'awesome-typescript'
+        loaders: [
+          'ts-loader',
+          'angular2-template-loader'
+        ]
       },
-        {
-          test: /\.html$/,
-          loader: 'raw'
-        }, {
-          test: /\.scss$/,
-          loaders: ['raw', 'postcss', 'sass']
-        }
+      {
+        test: /\.(html|css)$/,
+        loader: 'raw-loader'
+      }, {
+        test: /\.scss$/,
+        loaders: ['raw-loader', 'postcss-loader', 'sass-loader']
+      }
     ]
   },
   plugins: [
-    /**
-     * Fix https://github.com/angular/angular/issues/11580
-     */
-    new webpack.ContextReplacementPlugin(
-      // The (\\|\/) piece accounts for path separators in *nix and Windows
-      /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
-      root('./lib') // location of your src
-    )
+    new webpack.LoaderOptionsPlugin({
+      test: /\.ts$/,
+      options: {
+        resolve: {}
+      }
+    })
   ]
 };
 
