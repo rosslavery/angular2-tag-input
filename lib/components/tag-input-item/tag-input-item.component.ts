@@ -2,15 +2,15 @@ import { Component, EventEmitter, HostBinding, Input, Output } from '@angular/co
 
 @Component({
   selector: 'rl-tag-input-item',
-  template: require('./tag-input-item.component.html'),
-  styles: [require('./tag-input-item.component.scss').toString()]
+  templateUrl: './tag-input-item.component.html',
+  styleUrls: ['./tag-input-item.component.css']
 })
 export class TagInputItemComponent {
   @Input() selected: boolean;
   @Input() text: string;
   @Input() index: number;
   @Output() tagRemoved: EventEmitter<number> = new EventEmitter<number>();
-  @HostBinding('class.ng2-tag-input-item-selected') 'selected === true';
+  @HostBinding('class.ng2-tag-input-item-selected') get isSelected() { return !!this.selected; }
 
   constructor() { }
 

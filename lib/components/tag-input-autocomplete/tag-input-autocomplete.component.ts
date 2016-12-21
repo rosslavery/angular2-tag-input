@@ -5,12 +5,12 @@ import 'rxjs/add/observable/fromEvent';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/do';
 
-import { KEYS } from '../shared/tag-input-keys';
+import { KEYS } from '../../shared/tag-input-keys';
 
 @Component({
   selector: 'rl-tag-input-autocomplete',
-  template: require('./tag-input-autocomplete.component.html'),
-  styles: [require('./tag-input-autocomplete.component.scss').toString()]
+  templateUrl: './tag-input-autocomplete.component.html',
+  styleUrls: ['./tag-input-autocomplete.component.css']
 })
 export class TagInputAutocompleteComponent implements OnChanges, OnDestroy, OnInit {
   @Input() items: string[];

@@ -3,7 +3,7 @@ import { AbstractControl, ControlValueAccessor, NG_VALUE_ACCESSOR, FormBuilder, 
 import { Subscription } from 'rxjs';
 import 'rxjs/add/operator/do';
 
-import { KEYS } from '../shared/tag-input-keys';
+import { KEYS } from '../../shared/tag-input-keys';
 
 /**
  * Taken from @angular/common/src/facade/lang
@@ -18,8 +18,8 @@ export interface AutoCompleteItem {
 
 @Component({
   selector: 'rl-tag-input',
-  template: require('./tag-input.component.html'),
-  styles: [require('./tag-input.component.scss').toString()],
+  templateUrl: './tag-input.component.html',
+  styleUrls: ['./tag-input.component.css'],
   providers: [
     {provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => TagInputComponent), multi: true},
   ]
