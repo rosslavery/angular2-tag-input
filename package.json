@@ -12,9 +12,9 @@
     "chips input"
   ],
   "scripts": {
+    "clean": "./node_modules/.bin/rimraf ./dist/",
+    "package:aot": "npm run clean && npm run build:aot",
     "build:aot": "./node_modules/.bin/ngc -p tsconfig-aot.json",
-    "build:sass": "./node_modules/.bin/node-sass -o lib/components lib/components",
-    "package:aot": "npm run build:sass && npm run build:aot",
     "serve": "webpack-dev-server --config config/webpack.dev.js --progress --profile --watch --content-base demo/",
     "lint": "tslint lib/**.*.ts"
   },
@@ -41,6 +41,7 @@
     "node-sass": "^3.10.1",
     "postcss-loader": "^0.13.0",
     "raw-loader": "^0.5.1",
+    "rimraf": "^2.5.4",
     "rxjs": "5.0.0-beta.12",
     "sass-loader": "^4.0.2",
     "source-map-loader": "^0.1.5",

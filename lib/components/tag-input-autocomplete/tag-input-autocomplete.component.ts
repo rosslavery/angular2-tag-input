@@ -9,8 +9,38 @@ import { KEYS } from '../../shared/tag-input-keys';
 
 @Component({
   selector: 'rl-tag-input-autocomplete',
-  templateUrl: './tag-input-autocomplete.component.html',
-  styleUrls: ['./tag-input-autocomplete.component.css']
+  template: `
+    <div
+      *ngFor="let item of items; let itemIndex = index"
+      [ngClass]="{ 'is-selected': selectedItemIndex === itemIndex }"
+      (click)="selectItem(itemIndex)"
+      class="rl-autocomplete-item">
+      {{item}}
+    </div>
+  `,
+  styles: [`
+    :host {
+      box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+      display: block;
+      position: absolute;
+      top: 100%;
+      font-family: "Roboto", "Helvetica Neue", sans-serif;
+      font-size: 16px;
+      color: #444444;
+      background: white;
+      padding: 8px 0;
+    }
+
+     :host .rl-autocomplete-item {
+      padding: 0 16px;
+      height: 48px;
+      line-height: 48px;
+    }
+
+     :host .is-selected {
+      background: #eeeeee;
+    }
+  `]
 })
 export class TagInputAutocompleteComponent implements OnChanges, OnDestroy, OnInit {
   @Input() items: string[];

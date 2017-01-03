@@ -18,8 +18,73 @@ export interface AutoCompleteItem {
 
 @Component({
   selector: 'rl-tag-input',
-  templateUrl: './tag-input.component.html',
-  styleUrls: ['./tag-input.component.css'],
+  template: `
+    <rl-tag-input-item
+      [text]="tag"
+      [index]="index"
+      [selected]="selectedTag === index"
+      (tagRemoved)="_removeTag($event)"
+      *ngFor="let tag of tagsList; let index = index">
+    </rl-tag-input-item>
+    <form [formGroup]="tagInputForm" class="ng2-tag-input-form">
+      <input
+        class="ng2-tag-input-field"
+        type="text"
+        formControlName="tagInputField"
+        [placeholder]="placeholder"
+        (paste)="onInputPaste($event)"
+        (keydown)="onKeydown($event)"
+        (blur)="onInputBlurred($event)"
+        (focus)="onInputFocused()">
+
+      <div *ngIf="showAutocomplete()" class="rl-tag-input-autocomplete-container">
+        <rl-tag-input-autocomplete
+          [items]="autocompleteResults"
+          [selectFirstItem]="autocompleteSelectFirstItem"
+          (itemSelected)="onAutocompleteSelect($event)"
+          (enterPressed)="onAutocompleteEnter($event)">
+        </rl-tag-input-autocomplete>
+      </div>
+    </form>
+  `,
+  styles: [`
+    :host {
+      font-family: "Roboto", "Helvetica Neue", sans-serif;
+      font-size: 16px;
+      display: block;
+      box-shadow: 0 1px #ccc;
+      padding: 8px 0 6px 0;
+      will-change: box-shadow;
+      transition: box-shadow 0.12s ease-out;
+    }
+
+     :host .ng2-tag-input-form {
+      display: inline;
+    }
+
+     :host .ng2-tag-input-field {
+      font-family: "Roboto", "Helvetica Neue", sans-serif;
+      font-size: 16px;
+      display: inline-block;
+      width: auto;
+      box-shadow: none;
+      border: 0;
+      padding: 8px 0;
+    }
+
+     :host .ng2-tag-input-field:focus {
+      outline: 0;
+    }
+
+     :host .rl-tag-input-autocomplete-container {
+      position: relative;
+      z-index: 10;
+    }
+
+    :host.ng2-tag-input-focus {
+      box-shadow: 0 2px #0d8bff;
+    }
+  `],
   providers: [
     {provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => TagInputComponent), multi: true},
   ]
