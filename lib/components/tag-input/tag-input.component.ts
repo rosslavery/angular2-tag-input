@@ -179,7 +179,7 @@ export class TagInputComponent implements ControlValueAccessor, OnDestroy, OnIni
     this.isFocused = false;
   }
 
-  onInputFocused(event): void {
+  onInputFocused(): void {
     this.isFocused = true;
   }
 

@@ -164,7 +164,7 @@ export class TagInputAutocompleteComponent implements OnChanges, OnDestroy, OnIn
     }
   }
 
-  ngOnChanges() {
+  ngOnChanges(changes) {
     if (this.selectFirstItem && this.itemsCount > 0) {
       this.goToTop();
     }
