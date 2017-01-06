@@ -1,7 +1,6 @@
 import { Component, EventEmitter, HostBinding, Input, forwardRef, OnDestroy, OnInit, Output } from '@angular/core';
 import { AbstractControl, ControlValueAccessor, NG_VALUE_ACCESSOR, FormBuilder, FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import 'rxjs/add/operator/do';
 
 import { KEYS } from '../../shared/tag-input-keys';
 
