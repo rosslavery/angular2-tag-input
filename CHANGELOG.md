@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.0
+- Made library Ahead-of-Time (AoT) ready, closes [#15](https://github.com/rosslavery/angular2-tag-input/issues/15)
+- Added missing rxjs imports, closes [#13](https://github.com/rosslavery/angular2-tag-input/issues/13)
+
 ## 1.1.0
 - Added autocomplete feature
 - Greatly-improved styling to adhere to Material spec
