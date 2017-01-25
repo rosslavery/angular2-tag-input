@@ -1,4 +1,16 @@
-import { Component, EventEmitter, HostBinding, Input, forwardRef, OnDestroy, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  forwardRef,
+  HostBinding,
+  HostListener,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+  ViewChild
+} from '@angular/core';
 import { AbstractControl, ControlValueAccessor, NG_VALUE_ACCESSOR, FormBuilder, FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
@@ -29,6 +41,7 @@ export interface AutoCompleteItem {
       <input
         class="ng2-tag-input-field"
         type="text"
+        #tagInputElement
         formControlName="tagInputField"
         [placeholder]="placeholder"
         (paste)="onInputPaste($event)"
@@ -105,11 +118,9 @@ export class TagInputComponent implements ControlValueAccessor, OnDestroy, OnIni
   @Input() placeholder: string = 'Add a tag';
   @Output('addTag') addTag: EventEmitter<string> = new EventEmitter<string>();
   @Output('removeTag') removeTag: EventEmitter<string> = new EventEmitter<string>();
+  @ViewChild('tagInputElement') tagInputElement: ElementRef;
 
-  public tagInputForm: FormGroup;
-  public autocompleteResults: string[] = [];
-  public tagsList: string[] = [];
-  public selectedTag: number;
+  private canShowAutoComplete: boolean = false;
   private tagInputSubscription: Subscription;
   private splitRegExp: RegExp;
   private get tagInputField(): AbstractControl {
@@ -119,7 +130,24 @@ export class TagInputComponent implements ControlValueAccessor, OnDestroy, OnIni
     return this.tagInputField.value;
   }
 
-  constructor(private fb: FormBuilder) {}
+  public tagInputForm: FormGroup;
+  public autocompleteResults: string[] = [];
+  public tagsList: string[] = [];
+  public selectedTag: number;
+
+  @HostListener('document:click', ['$event', '$event.target']) onDocumentClick(event: MouseEvent, target: HTMLElement) {
+    if (!target) {
+      return;
+    }
+
+    if (!this.elementRef.nativeElement.contains(target)) {
+      this.canShowAutoComplete = false;
+    }
+  }
+
+  constructor(
+    private fb: FormBuilder,
+    private elementRef: ElementRef) {}
 
   ngOnInit() {
     this.splitRegExp = new RegExp(this.pasteSplitPattern);
@@ -181,6 +209,7 @@ export class TagInputComponent implements ControlValueAccessor, OnDestroy, OnIni
 
   onInputFocused(): void {
     this.isFocused = true;
+    setTimeout(() => this.canShowAutoComplete = true);
   }
 
   onInputPaste(event): void {
@@ -193,6 +222,7 @@ export class TagInputComponent implements ControlValueAccessor, OnDestroy, OnIni
 
   onAutocompleteSelect(selectedItem) {
     this._addTags([selectedItem]);
+    this.tagInputElement.nativeElement.focus();
   }
 
   onAutocompleteEnter() {
@@ -202,7 +232,7 @@ export class TagInputComponent implements ControlValueAccessor, OnDestroy, OnIni
   }
 
   showAutocomplete(): boolean {
-    return (this.autocomplete && this.autocompleteItems.length > 0 && this.inputValue.length > 0);
+    return (this.autocomplete && this.autocompleteItems.length > 0 && this.canShowAutoComplete && this.inputValue.length > 0);
   }
 
   private _splitString(tagString: string): string[] {
