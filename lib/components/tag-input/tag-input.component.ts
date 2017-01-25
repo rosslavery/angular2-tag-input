@@ -232,7 +232,13 @@ export class TagInputComponent implements ControlValueAccessor, OnDestroy, OnIni
   }
 
   showAutocomplete(): boolean {
-    return (this.autocomplete && this.autocompleteItems.length > 0 && this.canShowAutoComplete && this.inputValue.length > 0);
+    return (
+      this.autocomplete &&
+      this.autocompleteItems &&
+      this.autocompleteItems.length > 0 &&
+      this.canShowAutoComplete &&
+      this.inputValue.length > 0
+    );
   }
 
   private _splitString(tagString: string): string[] {
