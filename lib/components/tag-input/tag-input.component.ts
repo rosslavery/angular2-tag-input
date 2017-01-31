@@ -102,7 +102,7 @@ export interface AutoCompleteItem {
   ]
 })
 export class TagInputComponent implements ControlValueAccessor, OnDestroy, OnInit {
-  @HostBinding('class.ng2-tag-input-focus') isFocused;
+  @HostBinding('class.ng2-tag-input-focus') isFocused: boolean;
   @Input() addOnBlur: boolean = true;
   @Input() addOnComma: boolean = true;
   @Input() addOnEnter: boolean = true;
@@ -202,7 +202,7 @@ export class TagInputComponent implements ControlValueAccessor, OnDestroy, OnIni
     }
   }
 
-  onInputBlurred(event): void {
+  onInputBlurred(event: any): void {
     if (this.addOnBlur) { this._addTags([this.inputValue]); }
     this.isFocused = false;
   }
@@ -212,7 +212,7 @@ export class TagInputComponent implements ControlValueAccessor, OnDestroy, OnIni
     setTimeout(() => this.canShowAutoComplete = true);
   }
 
-  onInputPaste(event): void {
+  onInputPaste(event: any): void {
     let clipboardData = event.clipboardData || (event.originalEvent && event.originalEvent.clipboardData);
     let pastedString = clipboardData.getData('text/plain');
     let tags = this._splitString(pastedString);
@@ -220,7 +220,7 @@ export class TagInputComponent implements ControlValueAccessor, OnDestroy, OnIni
     setTimeout(() => this._resetInput());
   }
 
-  onAutocompleteSelect(selectedItem) {
+  onAutocompleteSelect(selectedItem: any) {
     this._addTags([selectedItem]);
     this.tagInputElement.nativeElement.focus();
   }
@@ -264,7 +264,7 @@ export class TagInputComponent implements ControlValueAccessor, OnDestroy, OnIni
     addedTags.forEach(tag => this.addTag.emit(tag));
   }
 
-  private _emitTagRemoved(removedTag): void {
+  private _emitTagRemoved(removedTag: any): void {
     this.removeTag.emit(removedTag);
   }
 

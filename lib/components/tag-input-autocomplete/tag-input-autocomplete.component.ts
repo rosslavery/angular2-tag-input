@@ -117,7 +117,7 @@ export class TagInputAutocompleteComponent implements OnChanges, OnDestroy, OnIn
     this.ensureHighlightVisible();
   }
 
-  goToBottom(itemsCount) {
+  goToBottom(itemsCount: any) {
     this.selectedItemIndex = itemsCount - 1;
     this.ensureHighlightVisible();
   }
@@ -146,6 +146,7 @@ export class TagInputAutocompleteComponent implements OnChanges, OnDestroy, OnIn
       return false;
     }
     this.goToPrevious();
+    return false;
   }
 
   handleDownArrow() {
@@ -155,6 +156,7 @@ export class TagInputAutocompleteComponent implements OnChanges, OnDestroy, OnIn
         return false;
     }
     this.goToNext();
+    return false;
   }
 
   selectItem(itemIndex?: number): void {
@@ -164,7 +166,7 @@ export class TagInputAutocompleteComponent implements OnChanges, OnDestroy, OnIn
     }
   }
 
-  ngOnChanges(changes) {
+  ngOnChanges(changes: any) {
     if (this.selectFirstItem && this.itemsCount > 0) {
       this.goToTop();
     }
