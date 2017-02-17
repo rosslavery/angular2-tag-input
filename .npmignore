@@ -1,2 +1,17 @@
+# IDE settings
+.vscode
+
+# dev-only and irrelevant files
+.npmignore
+tsconfig*.json
+tslint.json
+.editorconfig
+demo
+config
 typings
 node_modules
+
+# typescript sources
+*.ts
+# leave typings intact for AoT purposes
+!*.d.ts
