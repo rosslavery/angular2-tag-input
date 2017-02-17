@@ -2,6 +2,7 @@
   "name": "angular2-tag-input",
   "version": "1.2.3",
   "description": "Tag input component for Angular 2",
+  "typings": "dist/index.d.ts",
   "main": "dist/index.js",
   "keywords": [
     "angular2",
