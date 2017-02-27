@@ -109,6 +109,7 @@ export class TagInputComponent implements ControlValueAccessor, OnDestroy, OnIni
   @Input() addOnPaste: boolean = true;
   @Input() addOnSpace: boolean = false;
   @Input() allowDuplicates: boolean = false;
+  @Input() caseSensitive: boolean = true;
   @Input() allowedTagsPattern: RegExp = /.+/;
   @Input() autocomplete: boolean = false;
   @Input() autocompleteItems: string[] = [];
@@ -253,7 +254,11 @@ export class TagInputComponent implements ControlValueAccessor, OnDestroy, OnIni
   }
 
   private _isTagUnique(tagString: string): boolean {
-    return this.allowDuplicates ? true : this.tagsList.indexOf(tagString) === -1;
+    let tagIndex = this.caseSensitive 
+      ?  this.tagsList.findIndex(item=>tagString === item)
+      : this.tagsList.findIndex(item => tagString.toLowerCase() === item.toLowerCase());
+
+    return this.allowDuplicates ? true : tagIndex === -1;
   }
 
   private _isTagAutocompleteItem(tagString: string): boolean {
