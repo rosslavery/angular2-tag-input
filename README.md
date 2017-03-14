@@ -2,7 +2,7 @@
 Tag input component for Angular 2
 
 ## Demo & Examples
-[View Demo](http://www.webpackbin.com/EkDO0p3Ab)
+[View Demo](http://plnkr.co/edit/uVGOm8yA0zA0OKhgWpvq?p=preview)
 
 ## Quick Start
 ```
