@@ -143,18 +143,18 @@ export class TagInputAutocompleteComponent implements OnChanges, OnDestroy, OnIn
   handleUpArrow() {
     if (this.selectedItemIndex === null) {
       this.goToBottom(this.itemsCount);
-      return false;
+    } else {
+      this.goToPrevious();
     }
-    this.goToPrevious();
   }
 
   handleDownArrow() {
     // Initialize to zero if first time results are shown
     if (this.selectedItemIndex === null) {
-        this.goToTop();
-        return false;
+      this.goToTop();
+    } else {
+      this.goToNext();
     }
-    this.goToNext();
   }
 
   selectItem(itemIndex?: number): void {
