@@ -325,6 +325,8 @@ export class TagInputComponent implements ControlValueAccessor, OnDestroy, OnIni
   }
 
   ngOnDestroy() {
-    this.tagInputSubscription.unsubscribe();
+    if (this.tagInputSubscription) {
+      this.tagInputSubscription.unsubscribe();
+    }
   }
 }
