@@ -243,7 +243,12 @@ export class TagInputComponent implements ControlValueAccessor, OnDestroy, OnIni
   }
 
   private showForm(): boolean {
-    return this.tagsList.length < this.maxSize;
+
+    console.log('=== null', this.maxSize === undefined);
+    console.log('== null', this.maxSize == undefined);
+    console.log('Maxsize', this.maxSize);
+
+    return (this.maxSize == undefined) || (this.tagsList.length < this.maxSize);
   }
 
   private _splitString(tagString: string): string[] {
