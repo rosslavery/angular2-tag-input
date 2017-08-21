@@ -242,7 +242,7 @@ export class TagInputComponent implements ControlValueAccessor, OnDestroy, OnIni
     );
   }
 
-  private showForm(): boolean {
+  public showForm(): boolean {
     return (this.maxSize == undefined) || (this.tagsList.length < this.maxSize);
   }
 

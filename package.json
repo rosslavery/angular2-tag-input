@@ -1,7 +1,7 @@
 {
-  "name": "angular2-tag-input",
-  "version": "1.2.3",
-  "description": "Tag input component for Angular 2",
+  "name": "angular2-tags",
+  "version": "1.0.4",
+  "description": "A fork from angular2-tag-input",
   "main": "dist/index.js",
   "keywords": [
     "angular2",
@@ -18,22 +18,22 @@
     "serve": "webpack-dev-server --config config/webpack.dev.js --progress --profile --watch --content-base demo/",
     "lint": "tslint lib/**.*.ts"
   },
-  "author": "TEAM COOL",
+  "author": "Ivan Joaquim",
   "license": "ISC",
   "peerDependencies": {
-    "@angular/common": "2.2.4",
-    "@angular/core": "2.2.4",
-    "@angular/forms": "2.2.4"
+    "@angular/common": "^2.4.7 || ^4.0.0",
+    "@angular/core": "^2.4.7 || ^4.0.0",
+    "@angular/forms": "^2.4.7 || ^4.0.0"
   },
   "devDependencies": {
-    "@angular/common": "2.2.4",
-    "@angular/compiler": "2.2.4",
-    "@angular/compiler-cli": "2.2.4",
-    "@angular/core": "2.2.4",
-    "@angular/forms": "2.2.4",
-    "@angular/platform-browser": "2.2.4",
-    "@angular/platform-browser-dynamic": "2.2.4",
-    "@angular/platform-server": "2.2.4",
+    "@angular/common": "^2.4.7 || ^4.0.0",
+    "@angular/compiler": "^2.4.7 || ^4.0.0",
+    "@angular/compiler-cli": "^2.4.7 || ^4.0.0",
+    "@angular/core": "^2.4.7 || ^4.0.0",
+    "@angular/forms": "^2.4.7 || ^4.0.0",
+    "@angular/platform-browser": "^2.4.7 || ^4.0.0",
+    "@angular/platform-browser-dynamic": "^2.4.7 || ^4.0.0",
+    "@angular/platform-server": "^2.4.7 || ^4.0.0",
     "@types/node": "^6.0.45",
     "awesome-typescript-loader": "^2.2.3",
     "codelyzer": "~0.0.26",
@@ -46,7 +46,7 @@
     "sass-loader": "^4.0.2",
     "source-map-loader": "^0.1.5",
     "tslint": "3.13.0",
-    "typescript": "2.0.10",
+    "typescript": "^2.0.10",
     "webpack": "^2.1.0-beta.21",
     "webpack-dev-server": "^2.1.0-beta.0",
     "zone.js": "^0.6.25"
