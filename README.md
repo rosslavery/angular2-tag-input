@@ -1,12 +1,14 @@
-# angular2-tag-input
+# angular2-tags
 Tag input component for Angular 2
 
-## Demo & Examples
-[View Demo](http://www.webpackbin.com/EkDO0p3Ab)
+#update
+Updated to angular4
+
+Added maxSize
 
 ## Quick Start
 ```
-npm install angular2-tag-input --save
+npm install angular2-tags --save
 ```
 
 ```
@@ -40,6 +42,7 @@ export class YourModule {}
 | `autocompleteMustMatch` | `boolean` | `true` | Whether a tag must be present in the suggestions list to be valid |
 | `autocompleteSelectFirstItem` | `boolean` | `true` | Pre-highlight the first item in the suggestions list |
 | `placeholder` | `string` | `'Add a tag'` | Placeholder for the `<input>` tag. |
+| `maxSize` | `number` | `''` | Sets a max number of tags. |
 
 
 ### Outputs

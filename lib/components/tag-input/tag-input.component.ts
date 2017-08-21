@@ -37,7 +37,7 @@ export interface AutoCompleteItem {
       (tagRemoved)="_removeTag($event)"
       *ngFor="let tag of tagsList; let index = index">
     </rl-tag-input-item>
-    <form [formGroup]="tagInputForm" class="ng2-tag-input-form">
+    <form [formGroup]="tagInputForm" class="ng2-tag-input-form" *ngIf="showForm()">
       <input
         class="ng2-tag-input-field"
         type="text"
@@ -116,6 +116,7 @@ export class TagInputComponent implements ControlValueAccessor, OnDestroy, OnIni
   @Input() autocompleteSelectFirstItem: boolean = true;
   @Input() pasteSplitPattern: string = ',';
   @Input() placeholder: string = 'Add a tag';
+  @Input() maxSize: number;
   @Output('addTag') addTag: EventEmitter<string> = new EventEmitter<string>();
   @Output('removeTag') removeTag: EventEmitter<string> = new EventEmitter<string>();
   @ViewChild('tagInputElement') tagInputElement: ElementRef;
@@ -241,6 +242,10 @@ export class TagInputComponent implements ControlValueAccessor, OnDestroy, OnIni
     );
   }
 
+  public showForm(): boolean {
+    return (this.maxSize == undefined) || (this.tagsList.length < this.maxSize);
+  }
+
   private _splitString(tagString: string): string[] {
     tagString = tagString.trim();
     let tags = tagString.split(this.splitRegExp);
@@ -273,7 +278,6 @@ export class TagInputComponent implements ControlValueAccessor, OnDestroy, OnIni
                         .filter(tag => this._isTagValid(tag))
                         .filter((tag, index, tagArray) => tagArray.indexOf(tag) === index)
                         .filter(tag => (this.showAutocomplete() && this.autocompleteMustMatch) ? this._isTagAutocompleteItem(tag) : true);
-
     this.tagsList = this.tagsList.concat(validTags);
     this._resetSelected();
     this._resetInput();
