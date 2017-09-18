@@ -115,11 +115,13 @@ export class TagInputComponent implements ControlValueAccessor, OnDestroy, OnIni
   private autocompleteItemsValue: string[] = [];
 
   @Input() 
-  set autocompleteItems(items: string[]) {
+  private set autocompleteItems(items: string[]) {
     this.autocompleteItemsValue = items
-    this.tagInputField.updateValueAndValidity({ onlySelf: false, emitEvent: true})
+    if (this.tagInputField) {
+      this.tagInputField.updateValueAndValidity({ onlySelf: false, emitEvent: true})
+    }
   }
-  get autocompleteItems(): string[] { return this.autocompleteItemsValue }
+  private get autocompleteItems(): string[] { return this.autocompleteItemsValue }
 
   @Input() autocompleteMustMatch: boolean = true;
   @Input() autocompleteSelectFirstItem: boolean = true;
@@ -133,7 +135,11 @@ export class TagInputComponent implements ControlValueAccessor, OnDestroy, OnIni
   private tagInputSubscription: Subscription;
   private splitRegExp: RegExp;
   private get tagInputField(): AbstractControl {
-    return this.tagInputForm.get('tagInputField');
+    if (this.tagInputForm && this.tagInputForm.get) {
+      return this.tagInputForm.get('tagInputField');
+    } else {
+      return null
+    }
   }
   private get inputValue(): string {
     return this.tagInputField.value;
