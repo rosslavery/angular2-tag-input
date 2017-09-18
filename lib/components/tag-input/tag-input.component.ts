@@ -111,7 +111,16 @@ export class TagInputComponent implements ControlValueAccessor, OnDestroy, OnIni
   @Input() allowDuplicates: boolean = false;
   @Input() allowedTagsPattern: RegExp = /.+/;
   @Input() autocomplete: boolean = false;
-  @Input() autocompleteItems: string[] = [];
+  
+  private autocompleteItemsValue: string[] = [];
+
+  @Input() 
+  set autocompleteItems(items: string[]) {
+    this.autocompleteItemsValue = items
+    this.tagInputField.updateValueAndValidity({ onlySelf: false, emitEvent: true})
+  }
+  get autocompleteItems(): string[] { return this.autocompleteItemsValue }
+
   @Input() autocompleteMustMatch: boolean = true;
   @Input() autocompleteSelectFirstItem: boolean = true;
   @Input() pasteSplitPattern: string = ',';
