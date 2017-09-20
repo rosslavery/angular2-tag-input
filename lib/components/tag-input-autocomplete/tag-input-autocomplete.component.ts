@@ -10,7 +10,7 @@ import { KEYS } from '../../shared/tag-input-keys';
     <div
       *ngFor="let item of items; let itemIndex = index"
       [ngClass]="{ 'is-selected': selectedItemIndex === itemIndex }"
-      (click)="selectItem(itemIndex)"
+      (mousedown)="selectItem(itemIndex)"
       class="rl-autocomplete-item">
       {{item}}
     </div>
