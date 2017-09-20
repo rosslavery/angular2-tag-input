@@ -1,6 +1,6 @@
 {
   "name": "angular2-tag-autocomplete",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "Tag input component for Angular 2",
   "main": "dist/index.js",
   "keywords": [
