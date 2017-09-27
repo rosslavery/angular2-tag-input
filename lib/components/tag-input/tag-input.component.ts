@@ -129,6 +129,7 @@ export class TagInputComponent implements ControlValueAccessor, OnDestroy, OnIni
   @Input() placeholder: string = 'Add a tag';
   @Output('addTag') addTag: EventEmitter<string> = new EventEmitter<string>();
   @Output('removeTag') removeTag: EventEmitter<string> = new EventEmitter<string>();
+  @Output('disallowTag') disallowTag: EventEmitter<string> = new EventEmitter<string>();
   @ViewChild('tagInputElement') tagInputElement: ElementRef;
 
   private canShowAutoComplete: boolean = false;
@@ -283,9 +284,21 @@ export class TagInputComponent implements ControlValueAccessor, OnDestroy, OnIni
     this.removeTag.emit(removedTag);
   }
 
+  private _emitDisallowedTags(disallowedTags: string[]): void {
+    disallowedTags.forEach(tag => this.disallowTag.emit(tag));
+  }
+
   private _addTags(tags: string[]): void {
-    let validTags = tags.map(tag => tag.trim())
-                        .filter(tag => this._isTagValid(tag))
+    let invalidTags : string[] = []
+    let validTags : string[] = tags.map(tag => tag.trim())
+                        .filter(tag => {
+                          if (this._isTagValid(tag)) {
+                            return true
+                          } else {
+                            invalidTags.push(tag)
+                            return false
+                          }
+                        })
                         .filter((tag, index, tagArray) => tagArray.indexOf(tag) === index)
                         .filter(tag => (this.showAutocomplete() && this.autocompleteMustMatch) ? this._isTagAutocompleteItem(tag) : true);
 
@@ -294,6 +307,7 @@ export class TagInputComponent implements ControlValueAccessor, OnDestroy, OnIni
     this._resetInput();
     this.onChange(this.tagsList);
     this._emitTagAdded(validTags);
+    this._emitDisallowedTags(invalidTags);
   }
 
   private _removeTag(tagIndexToRemove: number): void {
