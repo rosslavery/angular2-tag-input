@@ -1,4 +1,4 @@
-# angular2-tag-input
+# angular2-tag-autocomplete
 Tag input component for Angular 2
 
 ## Demo & Examples
