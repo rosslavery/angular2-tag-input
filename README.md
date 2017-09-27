@@ -6,7 +6,11 @@ Tag input component for Angular 2
 
 ## Quick Start
 ```
-npm install angular2-tag-input --save
+npm install angular2-tag-autcomplete --save
+```
+or
+```
+yarn add angular2-tag-autcomplete
 ```
 
 ```
