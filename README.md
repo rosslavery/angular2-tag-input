@@ -15,7 +15,7 @@ yarn add angular2-tag-autcomplete
 
 ```
 // In one of your application NgModules
-import {RlTagInputModule} from 'angular2-tag-input';
+import {RlTagInputModule} from 'angular2-tag-autocomplete';
 
 @NgModule({
   imports: [
