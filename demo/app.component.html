@@ -1,7 +1,9 @@
-<h2>Basic Tag Input:</h2>
+<h2>Email Tag Input</h2>
 <div>
   <rl-tag-input
     [(ngModel)]="tags"
+    [allowedTagsPattern]="tagRegex"
+    (disallowTag)="log('disallow', $event)"
     placeholder="Testing placeholder">
   </rl-tag-input>
 </div>
