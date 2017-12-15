@@ -291,16 +291,16 @@ export class TagInputComponent implements ControlValueAccessor, OnDestroy, OnIni
   private _addTags(tags: string[]): void {
     let invalidTags : string[] = []
     let validTags : string[] = tags.map(tag => tag.trim())
-                        .filter(tag => {
-                          if (this._isTagValid(tag)) {
-                            return true
-                          } else {
-                            invalidTags.push(tag)
-                            return false
-                          }
-                        })
-                        .filter((tag, index, tagArray) => tagArray.indexOf(tag) === index)
-                        .filter(tag => (this.showAutocomplete() && this.autocompleteMustMatch) ? this._isTagAutocompleteItem(tag) : true);
+                                .filter(tag => {
+                                  if (this._isTagValid(tag)) {
+                                    return true
+                                  } else {
+                                    invalidTags.push(tag)
+                                    return false
+                                  }
+                                })
+                                .filter((tag, index, tagArray) => tagArray.indexOf(tag) === index)
+                                .filter(tag => (this.showAutocomplete() && this.autocompleteMustMatch) ? this._isTagAutocompleteItem(tag) : true);
 
     this.tagsList = this.tagsList.concat(validTags);
     this._resetSelected();
