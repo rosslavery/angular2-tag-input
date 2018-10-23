@@ -1,8 +1,8 @@
-import { Component, ElementRef, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { Subscription } from 'rxjs/Subscription';
+import { Component, ElementRef, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output } from '@angular/core'
+import { Observable, Subscription } from 'rxjs'
+import 'rxjs/add/observable/fromEvent'
 
-import { KEYS } from '../../shared/tag-input-keys';
+import { KEYS } from '../../shared/tag-input-keys'
 
 @Component({
   selector: 'rl-tag-input-autocomplete',
