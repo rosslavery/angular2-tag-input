@@ -1,5 +1,5 @@
 {
-  "name": "angular2-tag-autocomplete",
+  "name": "ngx-tag-autocomplete",
   "version": "2.0.0",
   "description": "Tag input component for Angular",
   "main": "dist/index.js",

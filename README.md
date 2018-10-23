@@ -1,21 +1,21 @@
-# angular2-tag-autocomplete
+# ngx-tag-autocomplete
 Tag input component for Angular 2
-
+<!-- 
 ## Demo & Examples
-[View Demo](http://www.webpackbin.com/EkDO0p3Ab)
+[View Demo](http://www.webpackbin.com/EkDO0p3Ab) -->
 
 ## Quick Start
 ```
-npm install angular2-tag-autcomplete --save
+npm install ngx-tag-autcomplete --save
 ```
 or
 ```
-yarn add angular2-tag-autcomplete
+yarn add ngx-tag-autcomplete
 ```
 
 ```
 // In one of your application NgModules
-import {RlTagInputModule} from 'angular2-tag-autocomplete';
+import {RlTagInputModule} from 'ngx-tag-autocomplete';
 
 @NgModule({
   imports: [
