@@ -8,11 +8,11 @@ Forked from [rosslavery](https://github.com/rosslavery/angular2-tag-input)
 
 ## Quick Start
 ```
-npm install ngx-tag-autcomplete --save
+npm install ngx-tag-autocomplete --save
 ```
 or
 ```
-yarn add ngx-tag-autcomplete
+yarn add ngx-tag-autocomplete
 ```
 
 ```
