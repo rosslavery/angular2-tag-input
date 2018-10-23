@@ -1,5 +1,7 @@
 # ngx-tag-autocomplete
-Tag input component for Angular 2
+Tag input component for Angular 6+
+
+Forked from [rosslavery](https://github.com/rosslavery/angular2-tag-input)
 <!-- 
 ## Demo & Examples
 [View Demo](http://www.webpackbin.com/EkDO0p3Ab) -->
