@@ -1,7 +1,7 @@
 {
   "name": "angular2-tag-autocomplete",
-  "version": "1.2.10",
-  "description": "Tag input component for Angular 2",
+  "version": "2.0.0",
+  "description": "Tag input component for Angular",
   "main": "dist/index.js",
   "keywords": [
     "angular2",
@@ -21,21 +21,21 @@
   "author": "TEAM COOL",
   "license": "ISC",
   "peerDependencies": {
-    "@angular/common": "2.2.4",
-    "@angular/core": "2.2.4",
-    "@angular/forms": "2.2.4"
+    "@angular/common": "^6.1.7",
+    "@angular/core": "^6.1.7",
+    "@angular/forms": "^6.1.7"
   },
   "devDependencies": {
-    "@angular/common": "2.2.4",
-    "@angular/compiler": "2.2.4",
-    "@angular/compiler-cli": "2.2.4",
-    "@angular/core": "2.2.4",
-    "@angular/forms": "2.2.4",
-    "@angular/platform-browser": "2.2.4",
-    "@angular/platform-browser-dynamic": "2.2.4",
-    "@angular/platform-server": "2.2.4",
+    "@angular/common": "^6.1.7",
+    "@angular/compiler": "^6.1.7",
+    "@angular/compiler-cli": "^6.1.7",
+    "@angular/core": "^6.1.7",
+    "@angular/forms": "^6.1.7",
+    "@angular/platform-browser": "^6.1.7",
+    "@angular/platform-browser-dynamic": "^6.1.7",
+    "@angular/platform-server": "^6.1.7",
     "@types/node": "^6.0.45",
-    "awesome-typescript-loader": "^2.2.3",
+    "awesome-typescript-loader": "^5.2.1",
     "codelyzer": "~0.0.26",
     "core-js": "^2.4.1",
     "node-sass": "^3.10.1",
@@ -46,7 +46,7 @@
     "sass-loader": "^4.0.2",
     "source-map-loader": "^0.1.5",
     "tslint": "3.13.0",
-    "typescript": "2.0.10",
+    "typescript": "2.7.2",
     "webpack": "^2.1.0-beta.21",
     "webpack-dev-server": "^2.1.0-beta.0",
     "zone.js": "^0.6.25"
