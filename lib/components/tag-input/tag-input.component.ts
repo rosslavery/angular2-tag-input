@@ -11,10 +11,12 @@ import {
   Output,
   ViewChild
 } from '@angular/core';
-import { AbstractControl, ControlValueAccessor, NG_VALUE_ACCESSOR, FormBuilder, FormGroup } from '@angular/forms';
-import { Subscription } from 'rxjs';
+import { AbstractControl, ControlValueAccessor, NG_VALUE_ACCESSOR, FormBuilder, FormGroup } from '@angular/forms'
+import { Subscription } from 'rxjs'
+import { tap } from 'rxjs/operators'
 
-import { KEYS } from '../../shared/tag-input-keys';
+// Project Dependencies
+import { KEYS } from '../../shared/tag-input-keys'
 
 /**
  * Taken from @angular/common/src/facade/lang
@@ -28,15 +30,15 @@ export interface AutoCompleteItem {
 }
 
 @Component({
-  selector: 'rl-tag-input',
+  selector: 'ngx-tag-input',
   template: `
-    <rl-tag-input-item
+    <ngx-tag-input-item
       [text]="tag"
       [index]="index"
       [selected]="selectedTag === index"
       (tagRemoved)="_removeTag($event)"
       *ngFor="let tag of tagsList; let index = index">
-    </rl-tag-input-item>
+    </ngx-tag-input-item>
     <form [formGroup]="tagInputForm" class="ng2-tag-input-form">
       <input
         class="ng2-tag-input-field"
@@ -49,13 +51,13 @@ export interface AutoCompleteItem {
         (blur)="onInputBlurred($event)"
         (focus)="onInputFocused()">
 
-      <div *ngIf="showAutocomplete()" class="rl-tag-input-autocomplete-container">
-        <rl-tag-input-autocomplete
+      <div *ngIf="showAutocomplete()" class="ngx-tag-input-autocomplete-container">
+        <ngx-tag-input-autocomplete
           [items]="autocompleteResults"
           [selectFirstItem]="autocompleteSelectFirstItem"
           (itemSelected)="onAutocompleteSelect($event)"
           (enterPressed)="onAutocompleteEnter($event)">
-        </rl-tag-input-autocomplete>
+        </ngx-tag-input-autocomplete>
       </div>
     </form>
   `,
@@ -88,7 +90,7 @@ export interface AutoCompleteItem {
       outline: 0;
     }
 
-     :host .rl-tag-input-autocomplete-container {
+     :host .ngx-tag-input-autocomplete-container {
       position: relative;
       z-index: 10;
     }
@@ -173,15 +175,16 @@ export class TagInputComponent implements ControlValueAccessor, OnDestroy, OnIni
     });
 
     this.tagInputSubscription = this.tagInputField.valueChanges
-    .do(value => {
-      this.autocompleteResults = this.autocompleteItems.filter(item => {
-        /**
-         * _isTagUnique makes sure to remove items from the autocompelte dropdown if they have
-         * already been added to the model, and allowDuplicates is false
-         */
-        return item.toLowerCase().indexOf(value.toLowerCase()) > -1 && this._isTagUnique(item);
-      });
-    })
+    .pipe(
+      tap(value => {
+        this.autocompleteResults = this.autocompleteItems.filter(item => {
+          /**
+           * _isTagUnique makes sure to remove items from the autocompelte dropdown if they have
+           * already been added to the model, and allowDuplicates is false
+           */
+          return item.toLowerCase().indexOf(value.toLowerCase()) > -1 && this._isTagUnique(item);
+        });
+      }))
     .subscribe();
   }
 

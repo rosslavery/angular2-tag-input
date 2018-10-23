@@ -15,17 +15,17 @@ yarn add ngx-tag-autcomplete
 
 ```
 // In one of your application NgModules
-import {RlTagInputModule} from 'ngx-tag-autocomplete';
+import {NgxTagInputModule} from 'ngx-tag-autocomplete';
 
 @NgModule({
   imports: [
-    RlTagInputModule
+    NgxTagInputModule
   ]
 })
 export class YourModule {}
 
 // In one of your component templates
-<rl-tag-input [(ngModel)]="tags" placeholder="Testing placeholder"></rl-tag-input>
+<ngx-tag-input [(ngModel)]="tags" placeholder="Testing placeholder"></ngx-tag-input>
 ```
 
 ## API
@@ -51,3 +51,4 @@ export class YourModule {}
 | --- | --- | --- |
 | `addTag` | `string` | Emits the added tag string |
 | `removeTag` | `string` | Emits the removed tag string |
+| `disallowTag` | `string` | Emits an invalid tag

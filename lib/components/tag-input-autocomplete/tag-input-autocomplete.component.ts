@@ -1,11 +1,12 @@
 import { Component, ElementRef, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output } from '@angular/core'
-import { Observable, Subscription } from 'rxjs'
-import 'rxjs/add/observable/fromEvent'
+import { Subscription, fromEvent } from 'rxjs'
+import { tap, filter } from 'rxjs/operators'
 
+// Project Dependencies
 import { KEYS } from '../../shared/tag-input-keys'
 
 @Component({
-  selector: 'rl-tag-input-autocomplete',
+  selector: 'ngx-tag-input-autocomplete',
   template: `
     <div
       *ngFor="let item of items; let itemIndex = index"
@@ -53,15 +54,17 @@ export class TagInputAutocompleteComponent implements OnChanges, OnDestroy, OnIn
   constructor(private elementRef: ElementRef) { }
 
   ngOnInit() {
-    this.keySubscription = Observable.fromEvent(window, 'keydown')
-    .filter(
-      (event: KeyboardEvent) =>
-      event.keyCode === KEYS.upArrow ||
-      event.keyCode === KEYS.downArrow ||
-      event.keyCode === KEYS.enter ||
-      event.keyCode === KEYS.esc
-    )
-    .do((event: KeyboardEvent) => {
+    this.keySubscription = fromEvent(window, 'keydown')
+    .pipe(
+      filter(
+        (event: KeyboardEvent) =>
+        event.keyCode === KEYS.upArrow ||
+        event.keyCode === KEYS.downArrow ||
+        event.keyCode === KEYS.enter ||
+        event.keyCode === KEYS.esc
+      ))
+    .pipe(
+      tap((event: KeyboardEvent) => {
       switch (event.keyCode) {
         case KEYS.downArrow:
           this.handleDownArrow();
@@ -82,7 +85,7 @@ export class TagInputAutocompleteComponent implements OnChanges, OnDestroy, OnIn
 
       event.stopPropagation();
       event.preventDefault();
-    })
+    }))
     .subscribe();
   }
 

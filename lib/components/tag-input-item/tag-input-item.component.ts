@@ -1,7 +1,7 @@
 import { Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'rl-tag-input-item',
+  selector: 'ngx-tag-input-item',
   template: `
     {{text}}
     <span

@@ -14,7 +14,7 @@
 - Removed delimiterCode @Input. While some flexibility is lost, code is more reliable with a limited number of split patterns
 - Updated dependencies to match latest RC6
 - Exporting an NgModule instead of a component, so installation instructions have changed
-- Namespaced selector to be `rl-tag-input` to protect against conflicts
+- Namespaced selector to be `ngx-tag-input` to protect against conflicts
 
 ### Other Changes
 - New @Input() addOnComma

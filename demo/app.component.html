@@ -1,11 +1,11 @@
 <h2>Email Tag Input</h2>
 <div>
-  <rl-tag-input
+  <ngx-tag-input
     [(ngModel)]="tags"
     [allowedTagsPattern]="tagRegex"
     (disallowTag)="log('disallow', $event)"
     placeholder="Testing placeholder">
-  </rl-tag-input>
+  </ngx-tag-input>
 </div>
 <div>
   <h4>Bound List:</h4>
@@ -19,13 +19,13 @@
 <h2>AutoComplete Tag Input:</h2>
 <h3>Tag must belong to autocomplete list.</h3>
 <div>
-	<rl-tag-input
+	<ngx-tag-input
     [addOnBlur]="false"
     [autocomplete]="true"
     [autocompleteItems]="autocompleteItems"
     [(ngModel)]="autocompleteTags"
     placeholder="Testing placeholder">
-  </rl-tag-input>
+  </ngx-tag-input>
 </div>
 <div>
 	<h4>Bound List:</h4>

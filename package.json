@@ -1,6 +1,6 @@
 {
   "name": "ngx-tag-autocomplete",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Tag input component for Angular",
   "main": "dist/index.js",
   "keywords": [
@@ -15,7 +15,7 @@
     "clean": "./node_modules/.bin/rimraf ./dist/",
     "package:aot": "npm run clean && npm run build:aot",
     "build:aot": "./node_modules/.bin/ngc -p tsconfig-aot.json",
-    "serve": "webpack-dev-server --config config/webpack.dev.js --progress --profile --watch --content-base demo/",
+    "serve": "ng serve",
     "lint": "tslint lib/**.*.ts"
   },
   "author": "TEAM COOL",
@@ -26,6 +26,8 @@
     "@angular/forms": "^6.1.7"
   },
   "devDependencies": {
+    "@angular-devkit/build-angular": "^0.10.2",
+    "@angular/cli": "^7.0.2",
     "@angular/common": "^6.1.7",
     "@angular/compiler": "^6.1.7",
     "@angular/compiler-cli": "^6.1.7",
@@ -42,7 +44,7 @@
     "postcss-loader": "^0.13.0",
     "raw-loader": "^0.5.1",
     "rimraf": "^2.5.4",
-    "rxjs": "5.0.0-beta.12",
+    "rxjs": "6.3.3",
     "sass-loader": "^4.0.2",
     "source-map-loader": "^0.1.5",
     "tslint": "3.13.0",

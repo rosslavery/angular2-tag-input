@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-import { RlTagInputModule } from '../lib/tag-input.module';
+import { NgxTagInputModule } from '../lib/tag-input.module';
 
 @NgModule({
   declarations: [
@@ -11,7 +11,7 @@ import { RlTagInputModule } from '../lib/tag-input.module';
   imports: [
     BrowserModule,
     FormsModule,
-    RlTagInputModule
+    NgxTagInputModule
   ],
   bootstrap: [
     AppComponent
